@@ -11,6 +11,7 @@
 #include "threads/switch.h"
 #include "threads/synch.h"
 #include "threads/vaddr.h"
+#include "devices/timer.h"
 #ifdef USERPROG
 #include "userprog/process.h"
 #endif
@@ -23,6 +24,7 @@
 /* List of processes in THREAD_READY state, that is, processes
    that are ready to run but not actually running. */
 static struct list ready_list;
+static struct list sleep_list;
 
 /* List of all processes.  Processes are added to this list
    when they are first scheduled and removed when they exit. */
@@ -84,6 +86,43 @@ static tid_t allocate_tid (void);
 
    It is not safe to call thread_current() until this function
    finishes. */
+
+/*reference from https://jeason.gitbooks.io/pintos-reference-guide-sysu/content/list.html*/
+
+bool
+sleep_less_func(const struct list_elem *a, const struct list_elem *b, void *aux UNUSED) 
+{
+
+  return list_entry(a,struct thread,elem)->sleep_time <
+
+         list_entry(b,struct thread,elem)->sleep_time;
+
+}
+
+/*called by timer_sleep(), insert sleep thread into a list in increasing order*/
+
+void
+thread_sleep (int64_t ticks)
+{
+  struct thread* current = thread_current ();
+  enum intr_level old_level;
+
+  ASSERT (!intr_context ());
+
+  //disable intr
+  old_level = intr_disable ();
+  if (current != idle_thread)
+  {	
+  	list_insert_ordered(&sleep_list, &current->elem, &sleep_less_func, NULL);
+  }
+  current->status = THREAD_BLOCKED;
+  current->sleep_time = ticks;
+  printf("%lld\n",ticks );	
+  schedule ();
+  //Enable intr
+  intr_set_level (old_level);
+}
+
 void
 thread_init (void) 
 {
@@ -117,8 +156,30 @@ thread_start (void)
   sema_down (&idle_started);
 }
 
-/* Called by the timer interrupt handler at each timer tick.
-   Thus, this function runs in an external interrupt context. */
+
+void 
+wakeup_threads(void)
+{
+  int64_t ticks = timer_ticks();  
+  while (true) {
+    if (list_empty (&sleep_list)) 
+    {
+      return;
+    }
+    struct thread *st = list_entry (list_front (&sleep_list), struct thread, elem);
+    printf("%lld\n",ticks );
+    if (st->sleep_time > ticks) 
+    {
+      return;
+    }
+    list_pop_front(&sleep_list);
+    thread_unblock(st);
+  }
+}
+
+
+
+
 void
 thread_tick (void) 
 {
@@ -133,7 +194,8 @@ thread_tick (void)
 #endif
   else
     kernel_ticks++;
-
+	wakeup_threads();
+  //wakeup_threads();
   /* Enforce preemption. */
   if (++thread_ticks >= TIME_SLICE)
     intr_yield_on_return ();

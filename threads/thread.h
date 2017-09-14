@@ -80,6 +80,15 @@ typedef int tid_t;
    only because they are mutually exclusive: only a thread in the
    ready state is on the run queue, whereas only a thread in the
    blocked state is on a semaphore wait list. */
+
+
+enum thread_blocked_reason { UNKNOWN, SLEEPING };
+struct thread_blocked {
+  enum thread_blocked_reason reason;
+  union {
+      int sleeping_wakeup_time;
+  };
+};
 struct thread
   {
     /* Owned by thread.c. */
@@ -89,7 +98,7 @@ struct thread
     uint8_t *stack;                     /* Saved stack pointer. */
     int priority;                       /* Priority. */
     struct list_elem allelem;           /* List element for all threads list. */
-
+    int64_t sleep_time;                     /* Sleep time for current thread. */
     /* Shared between thread.c and synch.c. */
     struct list_elem elem;              /* List element. */
 
@@ -106,6 +115,14 @@ struct thread
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 extern bool thread_mlfqs;
+
+
+/* hanbin added*/
+void thread_sleep (int64_t ticks);
+bool
+sleep_less_func (const struct list_elem *a, const struct list_elem *b, void *aux); 
+void wakeup_threads (void);
+/* hanbin added*/
 
 void thread_init (void);
 void thread_start (void);

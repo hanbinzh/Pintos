@@ -89,11 +89,17 @@ timer_elapsed (int64_t then)
 void
 timer_sleep (int64_t ticks) 
 {
+  if (ticks <= 0) {
+    return;
+  }
   int64_t start = timer_ticks ();
-
+  printf("start:%lld\n",start);
+  printf("ticks:%lld\n",ticks);
   ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks) 
-    thread_yield ();
+  thread_sleep(start + ticks);
+  //while (timer_elapsed (start) < ticks) 
+    //thread_yield ();
+
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
