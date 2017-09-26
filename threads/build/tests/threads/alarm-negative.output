@@ -13,7 +13,7 @@ Executing 'alarm-negative':
 (alarm-negative) end
 Execution of 'alarm-negative' complete.
 Timer: 32 ticks
-Thread: 1 idle ticks, 33 kernel ticks, 0 user ticks
+Thread: 1 idle ticks, 34 kernel ticks, 0 user ticks
 Console: 405 characters output
 Keyboard: 0 keys pressed
-Powering off..
+Powering off...

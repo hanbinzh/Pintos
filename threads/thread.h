@@ -80,6 +80,9 @@ typedef int tid_t;
    only because they are mutually exclusive: only a thread in the
    ready state is on the run queue, whereas only a thread in the
    blocked state is on a semaphore wait list. */
+/* Lock. */
+
+
 struct thread
   {
     /* Owned by thread.c. */
@@ -87,12 +90,28 @@ struct thread
     enum thread_status status;          /* Thread state. */
     char name[16];                      /* Name (for debugging purposes). */
     uint8_t *stack;                     /* Saved stack pointer. */
-    int priority;                       /* Priority. */
+
+
+
+
     struct list_elem allelem;           /* List element for all threads list. */
     int64_t sleep_time;
     /* Shared between thread.c and synch.c. */
+    int priority;                       /* Priority. */
+    int donated_priority;               /* donated priority */
+    int original_priority;
+    int priority_cnt;
+
+    struct list locks;                  /* Locks that the thread is holding. */
+    struct lock *lock_waiting;          /* The lock that the thread is waiting for. */
+
     struct list_elem elem;              /* List element. */
     struct list_elem sleepelem;
+    struct list_elem lock_elem;
+
+    int prev_priority;
+    int donation_flag;
+
 
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
@@ -107,6 +126,7 @@ struct thread
    If true, use multi-level feedback queue scheduler.
    Controlled by kernel command-line option "-o mlfqs". */
 extern bool thread_mlfqs;
+
 
 void thread_init (void);
 void thread_start (void);
@@ -126,8 +146,12 @@ const char *thread_name (void);
 
 void thread_exit (void) NO_RETURN;
 void thread_yield (void);
+
+/*hanbin*/
 void thread_awake (int64_t ticks);
 void thread_sleep (int64_t ticks);
+
+
 
 /* Performs some operation on thread t, given auxiliary data AUX. */
 typedef void thread_action_func (struct thread *t, void *aux);
@@ -135,6 +159,11 @@ void thread_foreach (thread_action_func *, void *);
 
 int thread_get_priority (void);
 void thread_set_priority (int);
+
+void donate_priority (void);
+void remove_with_lock (struct lock *lock);
+void refresh_priority (void);
+
 
 int thread_get_nice (void);
 void thread_set_nice (int);

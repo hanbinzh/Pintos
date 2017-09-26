@@ -10,23 +10,35 @@ Boot complete.
 Executing 'priority-donate-chain':
 (priority-donate-chain) begin
 (priority-donate-chain) main got lock.
-(priority-donate-chain) main should have priority 3.  Actual priority: 0.
-(priority-donate-chain) interloper 1 finished.
-(priority-donate-chain) main should have priority 6.  Actual priority: 0.
-(priority-donate-chain) main should have priority 9.  Actual priority: 0.
-(priority-donate-chain) interloper 2 finished.
-(priority-donate-chain) interloper 3 finished.
-(priority-donate-chain) main should have priority 12.  Actual priority: 0.
-(priority-donate-chain) main should have priority 15.  Actual priority: 0.
-(priority-donate-chain) main should have priority 18.  Actual priority: 0.
-(priority-donate-chain) (priority-donate-chain) interloper 5 finished.
-(priority-donate-chain) interloper 6 finished.
-main should have priority 21.  Actual priority: 0.
-(priority-donate-chain) main finishing with priority 0.
-(priority-donate-chain) end
-Execution of 'priority-donate-chain' complete.
-Timer: 127 ticks
-Thread: 0 idle ticks, 129 kernel ticks, 0 user ticks
-Console: 1272 characters output
-Keyboard: 0 keys pressed
-Powering off...
+(priority-donate-chain) main should have priority 3.  Actual priority: 3.
+(priority-donate-chain) main should have priority 6.  Actual priority: 6.
+(priority-donate-chain) main should have priority 9.  Actual priority: 9.
+(priority-donate-chain) main should have priority 12.  Actual priority: 12.
+(priority-donate-chain) main should have priority 15.  Actual priority: 15.
+(priority-donate-chain) main should have priority 18.  Actual priority: 18.
+(priority-donate-chain) main should have priority 21.  Actual priority: 21.
+(priority-donate-chain) Kernel PANIC at ../../lib/kernel/list.c:439 in list_sort(): assertion `is_sorted (list_begin (list), list_end (list), less, aux)' failed.
+Call stack: 0xc0027990 0x8b102444Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault Exception)
+Unexpected interrupt 0x0e (#PF Page-Fault E

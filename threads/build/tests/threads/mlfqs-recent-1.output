@@ -102,7 +102,7 @@ Executing 'mlfqs-recent-1':
 (mlfqs-recent-1) After 180 seconds, recent_cpu is 0.00, load_avg is 0.00.
 (mlfqs-recent-1) end
 Execution of 'mlfqs-recent-1' complete.
-Timer: 19014 ticks
+Timer: 19015 ticks
 Thread: 970 idle ticks, 18047 kernel ticks, 0 user ticks
 Console: 7087 characters output
 Keyboard: 0 keys pressed

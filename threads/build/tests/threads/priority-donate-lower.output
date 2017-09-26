@@ -9,17 +9,17 @@ Calibrating timer...  204,600 loops/s.
 Boot complete.
 Executing 'priority-donate-lower':
 (priority-donate-lower) begin
-(priority-donate-lower) Main thread should have priority 41.  Actual priority: 31.
+(priority-donate-lower) Main thread should have priority 41.  Actual priority: 41.
 (priority-donate-lower) Lowering base priority...
 (priority-donate-lower) Main thread should have priority 41.  Actual priority: 21.
-(priority-donate-lower) (priority-donate-lower) acquire: got the lock
+(priority-donate-lower) acquire: got the lock
 (priority-donate-lower) acquire: done
-acquire must already have finished.
+(priority-donate-lower) acquire must already have finished.
 (priority-donate-lower) Main thread should have priority 21.  Actual priority: 21.
 (priority-donate-lower) end
 Execution of 'priority-donate-lower' complete.
-Timer: 78 ticks
-Thread: 0 idle ticks, 80 kernel ticks, 0 user ticks
+Timer: 80 ticks
+Thread: 0 idle ticks, 82 kernel ticks, 0 user ticks
 Console: 861 characters output
 Keyboard: 0 keys pressed
-Powering off..
+Powering off...
