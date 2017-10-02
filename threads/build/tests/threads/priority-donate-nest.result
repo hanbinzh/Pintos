@@ -1,6 +1,1 @@
-FAIL
-Kernel panic in run: PANIC at ../../lib/kernel/list.c:439 in list_sort(): assertion `is_sorted (list_begin (list), list_end (list), less, aux)' failed.
-Call stack: 0xc0027990 0x8b102444
-Translation of call stack:
-0xc0027990: debug_panic (.../../lib/kernel/debug.c:38)
-0x8b102444: (unknown)
+PASS

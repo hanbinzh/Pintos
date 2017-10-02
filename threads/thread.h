@@ -98,19 +98,19 @@ struct thread
     int64_t sleep_time;
     /* Shared between thread.c and synch.c. */
     int priority;                       /* Priority. */
-    int donated_priority;               /* donated priority */
     int original_priority;
-    int priority_cnt;
 
-    struct list locks;                  /* Locks that the thread is holding. */
+
+    struct list donations_list;              /* The list of other threads waiting on locks the thread has. Thus,these are possible priority donors */
     struct lock *lock_waiting;          /* The lock that the thread is waiting for. */
 
     struct list_elem elem;              /* List element. */
     struct list_elem sleepelem;
-    struct list_elem lock_elem;
+    struct list_elem donation_elem;
+    
+    int nice;
+    int recent_cpu;
 
-    int prev_priority;
-    int donation_flag;
 
 
 #ifdef USERPROG
@@ -170,4 +170,9 @@ void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
 
+void mlfqs_priority (struct thread *t);
+void mlfqs_recent_cpu (struct thread *t);
+void mlfqs_cal_priority (void);
+void mlfqs_load_avg (void);
+void mlfqs_cal_cpu (void);
 #endif /* threads/thread.h */

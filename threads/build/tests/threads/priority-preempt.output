@@ -18,7 +18,7 @@ Executing 'priority-preempt':
 (priority-preempt) The high-priority thread should have already completed.
 (priority-preempt) end
 Execution of 'priority-preempt' complete.
-Timer: 70 ticks
+Timer: 71 ticks
 Thread: 0 idle ticks, 73 kernel ticks, 0 user ticks
 Console: 774 characters output
 Keyboard: 0 keys pressed

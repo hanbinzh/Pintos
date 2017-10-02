@@ -30,7 +30,7 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support:  
-00000000000i[MEM0 ] allocated memory at 0xb6af4008. after alignment, vector=0xb6af5000
+00000000000i[MEM0 ] allocated memory at 0xb6b08008. after alignment, vector=0xb6b09000
 00000000000i[MEM0 ] 4.00MB
 00000000000i[MEM0 ] rom at 0xffff0000/65536 ('/usr/local/share/bochs//BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/32768 ('/usr/local/share/bochs//VGABIOS-lgpl-latest')
@@ -38,8 +38,6 @@
 00000000000i[CMOS ] Setting initial clock to: Wed Dec 31 19:00:00 1969 (time0=0)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
-00000000000i[XGUI ] test_alloc_colors: 16 colors available out of 16 colors tried
-00000000000i[XGUI ] font 8 wide x 16 high, display depth = 24
 00000000000i[VGA  ] interval=40000
 00000000000i[     ] init_mem of 'harddrv' plugin device by virtual method
 00000000000i[     ] init_mem of 'keyboard' plugin device by virtual method
@@ -48,7 +46,7 @@
 00000000000i[     ] init_mem of 'extfpuirq' plugin device by virtual method
 00000000000i[     ] init_mem of 'speaker' plugin device by virtual method
 00000000000i[     ] init_dev of 'harddrv' plugin device by virtual method
-00000000000i[HD   ] HD on ata0-0: '/tmp/oTRIwbF90s.dsk' 'flat' mode 
+00000000000i[HD   ] HD on ata0-0: '/tmp/lgj66tZkSB.dsk' 'flat' mode 
 00000000000i[HD   ] Using boot sequence disk, none, none
 00000000000i[HD   ] Floppy boot signature check is enabled
 00000000000i[     ] init_dev of 'keyboard' plugin device by virtual method
@@ -59,7 +57,7 @@
 00000000000i[PAR  ] parallel port 1 at 0x0378 irq 7
 00000000000i[     ] init_dev of 'extfpuirq' plugin device by virtual method
 00000000000i[     ] init_dev of 'speaker' plugin device by virtual method
-00000000000i[SPEAK] Failed to open /dev/console: Resource temporarily unavailable
+00000000000i[SPEAK] Failed to open /dev/console: Permission denied
 00000000000i[SPEAK] Deactivating beep on console
 00000000000i[     ] reset of 'harddrv' plugin device by virtual method
 00000000000i[     ] reset of 'keyboard' plugin device by virtual method
@@ -67,49 +65,35 @@
 00000000000i[     ] reset of 'parallel' plugin device by virtual method
 00000000000i[     ] reset of 'extfpuirq' plugin device by virtual method
 00000000000i[     ] reset of 'speaker' plugin device by virtual method
-00000000000i[XGUI ] [x] Mouse off
 00000003740i[BIOS ] $Revision: 1.160 $ $Date: 2006/01/25 17:51:49 $
-00000120000e[VGA  ] character height = 1, skipping text update
-00000160000e[VGA  ] character height = 1, skipping text update
-00000200000e[VGA  ] character height = 1, skipping text update
-00000240000e[VGA  ] character height = 1, skipping text update
-00000280000e[VGA  ] character height = 1, skipping text update
 00000317563i[KBD  ] reset-disable command received
-00000320000e[VGA  ] character height = 1, skipping text update
-00000360000e[VGA  ] character height = 1, skipping text update
-00000400000e[VGA  ] character height = 1, skipping text update
 00000425250i[VBIOS] VGABios $Id: vgabios.c,v 1.63 2005/12/26 19:50:26 vruppert Exp $
 00000428257i[VBIOS] VBE Bios $Id: vbe.c,v 1.48 2005/12/26 19:50:26 vruppert Exp $
-00000440000e[VGA  ] character height = 1, skipping text update
-00000480000i[XGUI ] charmap update. Font Height is 16
-00000520000i[XGUI ] charmap update. Font Height is 16
 00000737822i[BIOS ] ata0-0: PCHS=1/16/63 translation=none LCHS=1/16/63
 00000786523e[HD   ] ata0: device set to 1 which does not exist
 00000786815e[HD   ] ata1: device set to 0 which does not exist
 00000787108e[HD   ] ata1: device set to 1 which does not exist
-00041886000p[XGUI ] >>PANIC<< POWER button turned off.
-00041886000i[SYS  ] Last time is 41
-00041886000i[XGUI ] Exit.
-00041886000i[CPU  ] protected mode
-00041886000i[CPU  ] CS.d_b = 32 bit
-00041886000i[CPU  ] SS.d_b = 32 bit
-00041886000i[CPU  ] | EAX=00000006  EBX=ffffffee  ECX=000007a1  EDX=0000000e
-00041886000i[CPU  ] | ESP=c0104e2c  EBP=c0104e78  ESI=c0104e40  EDI=c002c9d0
-00041886000i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf zf af PF cf
-00041886000i[CPU  ] | SEG selector     base    limit G D
-00041886000i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00041886000i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00041886000i[CPU  ] | EIP=c0021680 (c0021680)
-00041886000i[CPU  ] | CR0=0x80010015 CR1=0 CR2=0x8b0cec83
-00041886000i[CPU  ] | CR3=0x00101000 CR4=0x00000000
-00041886000i[CPU  ] >> 83
-00041886000i[CPU  ] >> f8
-00041886000i[CPU  ] >> 27
-00041886000i[CPU  ] >> : cmp eax, 0x00000027
-00041886000i[     ] restoring default signal behavior
-00041886000i[CTRL ] quit_sim called with exit code 1
+00032276841p[UNMP ] >>PANIC<< Shutdown port: shutdown requested
+00032276841i[SYS  ] Last time is 32
+00032276841i[NGUI ] bx_nogui_gui_c::exit() not implemented yet.
+00032276841i[CPU  ] protected mode
+00032276841i[CPU  ] CS.d_b = 32 bit
+00032276841i[CPU  ] SS.d_b = 32 bit
+00032276841i[CPU  ] | EAX=0000006e  EBX=c002b8ac  ECX=c000ef7e  EDX=ffff8900
+00032276841i[CPU  ] | ESP=c000ef70  EBP=c000efe8  ESI=c002e686  EDI=c000ef80
+00032276841i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af pf cf
+00032276841i[CPU  ] | SEG selector     base    limit G D
+00032276841i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00032276841i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00032276841i[CPU  ] | EIP=c00258d7 (c00258d6)
+00032276841i[CPU  ] | CR0=0x80010015 CR1=0 CR2=0x00000000
+00032276841i[CPU  ] | CR3=0x00101000 CR4=0x00000000
+00032276841i[CPU  ] >> ee
+00032276841i[CPU  ] >> : out dx, al
+00032276841i[     ] restoring default signal behavior
+00032276841i[CTRL ] quit_sim called with exit code 1
